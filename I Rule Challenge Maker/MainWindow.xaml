@@ -29,7 +29,7 @@
         <CheckBox x:Name="noShovelCheckbox" Content="Disable shovel" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Click="noShovelCheckbox_Click"/>
         <CheckBox x:Name="noChargersCheckbox" Content="Disable chargers" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" Click="noChargersCheckbox_Click"/>
         <CheckBox x:Name="onePerWaveCheckbox" Content="Enable 'one per wave' option" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Click="onePerWaveCheckbox_Click"/>
-        <CheckBox x:Name="noChargersCheckbox_Copy" Content="Disable chargers" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Click="noChargersCheckbox_Click"/>
+        <CheckBox x:Name="noHeartsCheckbox" Content="Disable hearts" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Click="noHeartsCheckbox_Click"/>
 
     </Grid>
 </Window>

@@ -26,7 +26,7 @@ namespace I_Rule_Challenge_Maker
         int noShovel = 0;
         int noChargers = 1;
         int onePerWave = 1;
-        int[] disposableCards = { 1 };
+        int[] disposableCards = { 11, 22, 33 };
         int fallingResource = 0;
         int noHearts = 0;
         int noProps = 0;
@@ -34,11 +34,10 @@ namespace I_Rule_Challenge_Maker
         int noSpots = 0;
         int gSpeedSmooth = 0;
         int gSpeed = 0;
-        String name = "";
-        String stageName = "";
+        String levelName = "Challenge level";
+        String stageName = "blue room";
         int stageNumber = 1;
         String stageDifficulty = "normal";
-        String stageFullName = "";
 
 
 
@@ -49,6 +48,35 @@ namespace I_Rule_Challenge_Maker
             challengeContent.Text += "global.noChampions = " + noChampions + "\r\n";
             challengeContent.Text += "global.fastStart = " + fastStart + "\r\n";
             challengeContent.Text += "global.noShovel = " + noShovel + "\r\n";
+            challengeContent.Text += "global.noCharges = " + noChargers + "\r\n";
+            challengeContent.Text += "global.onePerWave = " + onePerWave + "\r\n";
+            challengeContent.Text += "global.disposableCards = ";
+            for (int i = 0; i < disposableCards.Length; i++)
+            {
+                if (i != disposableCards.Length - 1)
+                {
+                    challengeContent.Text += disposableCards[i] + ", ";
+                }
+                else
+                {
+                    challengeContent.Text += disposableCards[i] + " ";
+                }
+            }
+            challengeContent.Text += "\r\n";
+            challengeContent.Text += "global.fallingresource = " + fallingResource + "\r\n";
+            challengeContent.Text += "global.noHearts = " + noHearts + "\r\n";
+            challengeContent.Text += "global.noProps = " + noProps + "\r\n";
+            challengeContent.Text += "global.noSpecialPoop = " + noSpecialPoop + "\r\n";
+            challengeContent.Text += "global.noSpots = " + noSpots + "\r\n";
+            challengeContent.Text += "global.gSpeedSmooth = " + gSpeedSmooth + "\r\n";
+            challengeContent.Text += "global.gSpeed = " + gSpeed + "\r\n";
+            challengeContent.Text += "\r\n";
+            challengeContent.Text += "Name: " + levelName + "\r\n";
+            challengeContent.Text += "\r\n";
+            challengeContent.Text += "Stage: " + stageName + " " + stageNumber.ToString() + " " + stageDifficulty + "\r\n";
+            challengeContent.Text += "\r\n";
+
+
         }
 
 
@@ -113,5 +141,20 @@ namespace I_Rule_Challenge_Maker
                 challengeContent.Text = challengeContent.Text.Replace("global.noShovel = 1\r\n", "global.noShovel = 0\r\n");
             }
         }
+        private void onePerWaveCheckbox_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void noChargersCheckbox_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void noHeartsCheckbox_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
     }
 }
