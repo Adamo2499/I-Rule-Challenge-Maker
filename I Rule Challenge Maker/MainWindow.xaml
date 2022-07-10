@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:I_Rule_Challenge_Maker"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="600" Width="800">
+        Title="I.RULE Challenge Maker" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -21,15 +21,33 @@
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Make your own I.RULE Challenge" VerticalAlignment="Top"/>
-        <Button x:Name="SaveChallengeFileButton" Content="Save challenge to file" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.554,-0.495" Click="SaveChallengeFileButton_Click"/>
+        <Button x:Name="SaveChallengeFileButton" Content="Save challenge to file" HorizontalAlignment="Left" Margin="10,454,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.554,-0.495" Click="SaveChallengeFileButton_Click"/>
         <TextBox MinLines="21" MaxLines="21" IsReadOnly="True" x:Name="challengeContent" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" Background="LightGray" VerticalAlignment="Top" Width="400" Height="553" Grid.Column="1"/>
-        <CheckBox x:Name="noCoinsCheckbox" Content="Disable coins" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Click="noCoinsCheckbox_Click" IsChecked="True" />
-        <CheckBox x:Name="noChampionsCheckbox" Content="Disable champions" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Click="noChampionsCheckbox_Click" IsChecked="True"/>
-        <CheckBox x:Name="fastStartCheckbox" Content="Fast start" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Click="fastStartCheckbox_Click"/>
-        <CheckBox x:Name="noShovelCheckbox" Content="Disable shovel" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Click="noShovelCheckbox_Click"/>
-        <CheckBox x:Name="noChargersCheckbox" Content="Disable chargers" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" Click="noChargersCheckbox_Click"/>
-        <CheckBox x:Name="onePerWaveCheckbox" Content="Enable 'one per wave' option" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Click="onePerWaveCheckbox_Click"/>
-        <CheckBox x:Name="noHeartsCheckbox" Content="Disable hearts" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Click="noHeartsCheckbox_Click"/>
-
+        <CheckBox x:Name="noCoinsCheckbox" Content="Disable coins" HorizontalAlignment="Left" Margin="12,53,0,0" VerticalAlignment="Top" Click="noCoinsCheckbox_Click" IsChecked="True" />
+        <CheckBox x:Name="noChampionsCheckbox" Content="Disable champions" HorizontalAlignment="Left" Margin="12,73,0,0" VerticalAlignment="Top" Click="noChampionsCheckbox_Click" IsChecked="True"/>
+        <CheckBox x:Name="fastStartCheckbox" Content="Fast start" HorizontalAlignment="Left" Margin="12,93,0,0" VerticalAlignment="Top" Click="fastStartCheckbox_Click"/>
+        <CheckBox x:Name="noShovelCheckbox" Content="Disable shovel" HorizontalAlignment="Left" Margin="12,113,0,0" VerticalAlignment="Top" Click="noShovelCheckbox_Click"/>
+        <CheckBox x:Name="noChargersCheckbox" Content="Disable chargers" HorizontalAlignment="Left" Margin="12,133,0,0" VerticalAlignment="Top" Click="noChargersCheckbox_Click"/>
+        <CheckBox x:Name="onePerWaveCheckbox" Content="Enable 'one per wave' option" HorizontalAlignment="Left" Margin="12,153,0,0" VerticalAlignment="Top" Click="onePerWaveCheckbox_Click"/>
+        <CheckBox x:Name="noHeartsCheckbox" Content="Disable hearts" HorizontalAlignment="Left" Margin="12,173,0,0" VerticalAlignment="Top" Click="noHeartsCheckbox_Click"/>
+        <CheckBox x:Name="noPropsCheckbox" Content="Disable props" HorizontalAlignment="Left" Margin="12,193,0,0" VerticalAlignment="Top" Click="noPropsCheckbox_Click"/>
+        <CheckBox x:Name="noSpecialPoopCheckbox" Content="Disable special poops" HorizontalAlignment="Left" Margin="12,213,0,0" VerticalAlignment="Top" Click="noSpecialPoopCheckbox_Click"/>
+        <CheckBox x:Name="noSpotsCheckbox" Content="Disable spots" HorizontalAlignment="Left" Margin="12,233,0,0" VerticalAlignment="Top" Click="noSpotsCheckbox_Click"/>
+        <Label Content="Set speed smooth: " HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label Content="Set speed: " HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="67"/>
+        <TextBox x:Name="gSpeedSmoothTextbox" HorizontalAlignment="Left" Margin="124,259,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="gSpeedTextbox" HorizontalAlignment="Left" Margin="82,288,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Challenge name: " HorizontalAlignment="Left" Margin="12,27,0,0" VerticalAlignment="Top" Width="107"/>
+        <TextBox x:Name="levelNameTextbox" HorizontalAlignment="Left" Margin="124,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" LostFocus="levelNameTextbox_LostFocus"/>
+        <Slider x:Name="levelNumberSlider" HorizontalAlignment="Left" Margin="96,369,0,0" VerticalAlignment="Top" Width="120" Minimum="1" Maximum="3" IsSnapToTickEnabled="True" Ticks="1,2,3" ValueChanged="levelNumberSlider_ValueChanged"/>
+        <Label Content="Chapter:" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" Width="67"/>
+        <ComboBox x:Name="chapterNameCombobox"  HorizontalAlignment="Left" Margin="82,323,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Level number:" HorizontalAlignment="Left" Margin="10,361,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label Content="1" HorizontalAlignment="Left" Margin="91,387,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528" Width="17"/>
+        <Label Content="2" HorizontalAlignment="Left" Margin="148,387,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528"/>
+        <Label Content="3" HorizontalAlignment="Left" Margin="200,387,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528"/>
+        <Label Content="Difficulty: " HorizontalAlignment="Left" Margin="12,415,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528"/>
+        <RadioButton x:Name="difficultyNormalRadioButton" Content="Normal" HorizontalAlignment="Left" Margin="82,421,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RadioButton x:Name="difficultyHardRadioButton"  Content="Hard" HorizontalAlignment="Left" Margin="184,421,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

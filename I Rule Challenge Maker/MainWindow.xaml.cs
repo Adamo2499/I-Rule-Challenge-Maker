@@ -71,11 +71,10 @@ namespace I_Rule_Challenge_Maker
             challengeContent.Text += "global.gSpeedSmooth = " + gSpeedSmooth + "\r\n";
             challengeContent.Text += "global.gSpeed = " + gSpeed + "\r\n";
             challengeContent.Text += "\r\n";
-            challengeContent.Text += "Name: " + levelName + "\r\n";
+            challengeContent.Text += "Name: \r\n";
             challengeContent.Text += "\r\n";
             challengeContent.Text += "Stage: " + stageName + " " + stageNumber.ToString() + " " + stageDifficulty + "\r\n";
             challengeContent.Text += "\r\n";
-
 
         }
 
@@ -155,6 +154,29 @@ namespace I_Rule_Challenge_Maker
 
         }
 
+        private void noPropsCheckbox_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void noSpecialPoopCheckbox_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void noSpotsCheckbox_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void levelNameTextbox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            levelName = levelNameTextbox.Text;
+            challengeContent.Text = challengeContent.Text.Replace("Name: \r\n", "Name: " + levelName + "\r\n");
+        }
+
+        private void levelNumberSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            stageNumber = (int)levelNumberSlider.Value;
+        }
     }
 }
