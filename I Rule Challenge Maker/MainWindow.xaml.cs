@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Win32;
+using System;
+using System.Collections.Specialized;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace I_Rule_Challenge_Maker
 {
@@ -32,12 +23,13 @@ namespace I_Rule_Challenge_Maker
         int noProps = 0;
         int noSpecialPoop = 0;
         int noSpots = 0;
-        int gSpeedSmooth = 0;
-        int gSpeed = 0;
-        String levelName = "Challenge level";
+        double gSpeedSmooth = 1;
+        double gSpeed = 1;
+        String levelName = "";
         String stageName = "blue room";
         int stageNumber = 1;
         String stageDifficulty = "normal";
+        StringCollection lines = new StringCollection();
 
 
 
@@ -48,7 +40,7 @@ namespace I_Rule_Challenge_Maker
             challengeContent.Text += "global.noChampions = " + noChampions + "\r\n";
             challengeContent.Text += "global.fastStart = " + fastStart + "\r\n";
             challengeContent.Text += "global.noShovel = " + noShovel + "\r\n";
-            challengeContent.Text += "global.noCharges = " + noChargers + "\r\n";
+            challengeContent.Text += "global.noChargers = " + noChargers + "\r\n";
             challengeContent.Text += "global.onePerWave = " + onePerWave + "\r\n";
             challengeContent.Text += "global.disposableCards = ";
             for (int i = 0; i < disposableCards.Length; i++)
@@ -71,112 +63,120 @@ namespace I_Rule_Challenge_Maker
             challengeContent.Text += "global.gSpeedSmooth = " + gSpeedSmooth + "\r\n";
             challengeContent.Text += "global.gSpeed = " + gSpeed + "\r\n";
             challengeContent.Text += "\r\n";
-            challengeContent.Text += "Name: \r\n";
+            challengeContent.Text += "Name: Level1 \r\n";
             challengeContent.Text += "\r\n";
             challengeContent.Text += "Stage: " + stageName + " " + stageNumber.ToString() + " " + stageDifficulty + "\r\n";
             challengeContent.Text += "\r\n";
+            chapterNameCombobox.Items.Add("Blue Room");
+            chapterNameCombobox.Items.Add("It's All Mine");
+            chapterNameCombobox.Items.Add("The Ark");
 
+            for (int line = 0; line < challengeContent.LineCount; line++)
+            {
+                lines.Add(challengeContent.GetLineText(line));
+            }
         }
-
-
+        private void levelNameTextbox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            levelName = levelNameTextbox.Text.Equals("Level1") ? "Level1" : levelNameTextbox.Text;
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(15), "Name: " + levelName + "\r\n");
+        }
         private void noCoinsCheckbox_Click(object sender, RoutedEventArgs e)
         {
-            noCoins = noCoinsCheckbox.IsChecked == true ? 0 : 1;
-            if (noCoins == 0)
-            {
-                challengeContent.Text = challengeContent.Text.Replace("global.noCoins = 0\r\n", "global.noCoins = 1\r\n");
-
-            }
-            else
-            {
-                challengeContent.Text = challengeContent.Text.Replace("global.noCoins = 1\r\n", "global.noCoins = 0\r\n");
-            }
-        }
-
-        private void SaveChallengeFileButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(this, "File saved!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-            Environment.Exit(0);
+            noCoins = noCoinsCheckbox.IsChecked == true ? 1 : 0;
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(0), "global.noCoins = " + noCoins + "\r\n");
         }
 
         private void noChampionsCheckbox_Click(object sender, RoutedEventArgs e)
         {
-            noChampions = noChampionsCheckbox.IsChecked == true ? 0 : 1;
-            if (noChampions == 0)
-            {
-                challengeContent.Text = challengeContent.Text.Replace("global.noChampions = 0\r\n", "global.noChampions = 1\r\n");
-
-            }
-            else
-            {
-                challengeContent.Text = challengeContent.Text.Replace("global.noChampions = 1\r\n", "global.noChampions = 0\r\n");
-            }
+            noChampions = noChampionsCheckbox.IsChecked == true ? 1 : 0;
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(1), "global.noChampions = " + noChampions + "\r\n");
         }
 
         private void fastStartCheckbox_Click(object sender, RoutedEventArgs e)
         {
             fastStart = fastStartCheckbox.IsChecked != true ? 0 : 1;
-            if (fastStart == 0)
-            {
-                challengeContent.Text = challengeContent.Text.Replace("global.fastStart = 0\r\n", "global.fastStart = 1\r\n");
-
-            }
-            else
-            {
-                challengeContent.Text = challengeContent.Text.Replace("global.fastStart = 1\r\n", "global.fastStart = 0\r\n");
-            }
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(2), "global.fastStart = " + fastStart + "\r\n");
         }
 
         private void noShovelCheckbox_Click(object sender, RoutedEventArgs e)
         {
             noShovel = noShovelCheckbox.IsChecked == true ? 0 : 1;
-            if (noShovel == 0)
-            {
-                challengeContent.Text = challengeContent.Text.Replace("global.noShovel = 0\r\n", "global.noShovel = 1\r\n");
-
-            }
-            else
-            {
-                challengeContent.Text = challengeContent.Text.Replace("global.noShovel = 1\r\n", "global.noShovel = 0\r\n");
-            }
-        }
-        private void onePerWaveCheckbox_Click(object sender, RoutedEventArgs e)
-        {
-
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(3), "global.noShovel = " + noShovel + "\r\n");
         }
         private void noChargersCheckbox_Click(object sender, RoutedEventArgs e)
         {
-
+            noChargers = noChargersCheckbox.IsChecked == true ? 1 : 0;
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(4), "global.noChargers = " + noChargers + "\r\n");
+        }
+        private void onePerWaveCheckbox_Click(object sender, RoutedEventArgs e)
+        {
+            onePerWave = onePerWaveCheckbox.IsChecked == true ? 1 : 0;
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(5), "global.onePerWave = " + onePerWave + "\r\n");
         }
 
         private void noHeartsCheckbox_Click(object sender, RoutedEventArgs e)
         {
-
+            noHearts = noHeartsCheckbox.IsChecked == true ? 1 : 0;
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(8), "global.noHearts = " + noHearts + "\r\n");
         }
 
         private void noPropsCheckbox_Click(object sender, RoutedEventArgs e)
         {
-
+            noProps = noPropsCheckbox.IsChecked == true ? 1 : 0;
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(9), "global.noProps = " + noProps + "\r\n");
         }
 
         private void noSpecialPoopCheckbox_Click(object sender, RoutedEventArgs e)
         {
-
+            noSpecialPoop = noSpecialPoopCheckbox.IsChecked == true ? 1 : 0;
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(10), "global.noSpecialPoop = " + noSpecialPoop + "\r\n");
         }
 
         private void noSpotsCheckbox_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-        private void levelNameTextbox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            levelName = levelNameTextbox.Text;
-            challengeContent.Text = challengeContent.Text.Replace("Name: \r\n", "Name: " + levelName + "\r\n");
+            noSpots = noSpotsCheckbox.IsChecked == true ? 1 : 0;
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(11), "global.noSpots = " + noSpots + "\r\n");
         }
 
         private void levelNumberSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             stageNumber = (int)levelNumberSlider.Value;
+        }
+
+        private void hardMode_Click(object sender, RoutedEventArgs e)
+        {
+            stageDifficulty = hardMode.IsChecked == true ? "hard" : "normal";
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(17), "Stage: " + chapterNameCombobox.SelectedItem + " " + levelNumberSlider.Value + " " + stageDifficulty + "\r\n");
+        }
+
+        private void gSpeedSmoothTextbox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!Double.TryParse(gSpeedSmoothTextbox.Text, out gSpeedSmooth))
+            {
+                gSpeedSmooth = 1.0;
+            }
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(12), "global.gSpeedSmooth = " + gSpeedSmooth + "\r\n");
+        }
+
+        private void gSpeedTextbox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!Double.TryParse(gSpeedTextbox.Text, out gSpeed))
+            {
+                gSpeed = 1.0;
+            }
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(13), "global.gSpeed = " + gSpeed + "\r\n");
+        }
+        private void SaveChallengeFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+            saveFileDialog.FileName = levelName.Equals("") ? "Level1" : levelName;
+            if (saveFileDialog.ShowDialog() == true)
+                File.WriteAllText(saveFileDialog.FileName, challengeContent.Text);
+            MessageBox.Show(this, "File saved!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            Environment.Exit(0);
+
         }
     }
 }

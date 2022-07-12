@@ -1,0 +1,19 @@
+here's a bunch of things you can say if you want or not
+set the variable to 0 if you don't want it
+and to 1 if you do
+if they have (number) at the end it means you have to enter a value
+global.noCoins = 
+global.noChampions = 
+global.fastStart = 
+global.noShovel = 
+global.noChargers = 
+global.onePerWave = 	
+global.disposableCards = 
+global.fallingresource = "(number, more like word)"
+(i'm not sure what those last two do, but they are in civil war)
+global.noHearts = 
+global.noProps = 
+global.noSpecialPoop = 
+global.noSpots = 
+global.gSpeedSmooth = (number, 1 is the normal value)
+global.gSpeed = (number, 1 is the normal value)

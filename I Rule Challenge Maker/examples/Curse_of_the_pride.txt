@@ -1,0 +1,18 @@
+global.noCoins = 1
+global.noChampions = 0
+global.fastStart = 0
+global.noShovel = 0
+global.noChargers = 1
+global.onePerWave = 0
+global.disposableCards = 17
+global.fallingresource = 0
+global.noHearts = 0
+global.noProps = 0
+global.noSpecialPoop = 0
+global.noSpots = 0
+global.gSpeedSmooth = 1
+global.gSpeed = 1
+
+Name: Curse of the pride
+
+Stage: ark II normal

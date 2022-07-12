@@ -4,6 +4,5 @@
              xmlns:local="clr-namespace:I_Rule_Challenge_Maker"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
     </Application.Resources>
 </Application>
