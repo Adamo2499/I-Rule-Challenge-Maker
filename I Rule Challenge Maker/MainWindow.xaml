@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:I_Rule_Challenge_Maker"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="I.RULE Challenge Maker" Height="600" Width="800">
+        Title="I.RULE Challenge Maker" Height="700" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -22,8 +22,8 @@
         </Grid.ColumnDefinitions>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Make your own I.RULE Challenge" VerticalAlignment="Top"/>
         <TextBox x:Name="levelNameTextbox" HorizontalAlignment="Left" Margin="124,33,0,0" TextWrapping="Wrap" Text="Level1" VerticalAlignment="Top" Width="120" LostFocus="levelNameTextbox_LostFocus"/>
-        <Button x:Name="SaveChallengeFileButton" Content="Save challenge to file" HorizontalAlignment="Left" Margin="10,454,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.554,-0.495" Click="SaveChallengeFileButton_Click"/>
-        <TextBox MinLines="21" MaxLines="21" IsReadOnly="True" x:Name="challengeContent" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" Background="LightGray" VerticalAlignment="Top" Width="400" Height="553" Grid.Column="1"/>
+        <Button x:Name="SaveChallengeFileButton" Content="Save challenge to file" HorizontalAlignment="Left" Margin="20,602,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.554,-0.495" Click="SaveChallengeFileButton_Click"/>
+        <TextBox MinLines="21" MaxLines="21" IsReadOnly="True" x:Name="challengeContent" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" Background="LightGray" VerticalAlignment="Center" Width="400" Height="684" Grid.Column="1"/>
         <CheckBox x:Name="noCoinsCheckbox" Content="Disable coins" HorizontalAlignment="Left" Margin="12,53,0,0" VerticalAlignment="Top" Click="noCoinsCheckbox_Click" IsChecked="True" />
         <CheckBox x:Name="noChampionsCheckbox" Content="Disable champions" HorizontalAlignment="Left" Margin="12,73,0,0" VerticalAlignment="Top" Click="noChampionsCheckbox_Click" IsChecked="True"/>
         <CheckBox x:Name="fastStartCheckbox" Content="Fast start" HorizontalAlignment="Left" Margin="12,93,0,0" VerticalAlignment="Top" Click="fastStartCheckbox_Click"/>
@@ -34,18 +34,29 @@
         <CheckBox x:Name="noPropsCheckbox" Content="Disable props" HorizontalAlignment="Left" Margin="12,193,0,0" VerticalAlignment="Top" Click="noPropsCheckbox_Click"/>
         <CheckBox x:Name="noSpecialPoopCheckbox" Content="Disable special poops" HorizontalAlignment="Left" Margin="12,213,0,0" VerticalAlignment="Top" Click="noSpecialPoopCheckbox_Click"/>
         <CheckBox x:Name="noSpotsCheckbox" Content="Disable spots" HorizontalAlignment="Left" Margin="12,233,0,0" VerticalAlignment="Top" Click="noSpotsCheckbox_Click"/>
-        <Label Content="Set speed smooth: " HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" Width="107"/>
-        <Label Content="Set speed: " HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="67"/>
-        <TextBox x:Name="gSpeedSmoothTextbox"  HorizontalAlignment="Left" Margin="124,259,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="gSpeedSmoothTextbox_LostFocus"/>
-        <TextBox x:Name="gSpeedTextbox" HorizontalAlignment="Left" Margin="82,288,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="gSpeedTextbox_LostFocus"/>
+        <Label Content="Set speed smooth: " HorizontalAlignment="Left" Margin="20,401,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label Content="Set speed: " HorizontalAlignment="Left" Margin="20,432,0,0" VerticalAlignment="Top" Width="67"/>
+        <TextBox x:Name="gSpeedSmoothTextbox"  HorizontalAlignment="Left" Margin="127,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="gSpeedSmoothTextbox_LostFocus"/>
+        <TextBox x:Name="gSpeedTextbox" HorizontalAlignment="Left" Margin="92,436,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="gSpeedTextbox_LostFocus"/>
         <Label Content="Challenge name: " HorizontalAlignment="Left" Margin="12,27,0,0" VerticalAlignment="Top" Width="107"/>
-        <Slider x:Name="levelNumberSlider" HorizontalAlignment="Left" Margin="96,369,0,0" VerticalAlignment="Top" Width="120" Minimum="1" Maximum="3" IsSnapToTickEnabled="True" Ticks="1,2,3" ValueChanged="levelNumberSlider_ValueChanged"/>
-        <Label Content="Chapter:" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" Width="67"/>
-        <ComboBox x:Name="chapterNameCombobox"  HorizontalAlignment="Left" Margin="82,323,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Level number:" HorizontalAlignment="Left" Margin="10,361,0,0" VerticalAlignment="Top" Width="87"/>
-        <Label Content="1" HorizontalAlignment="Left" Margin="91,387,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528" Width="17"/>
-        <Label Content="2" HorizontalAlignment="Left" Margin="148,387,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528"/>
-        <Label Content="3" HorizontalAlignment="Left" Margin="200,387,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528"/>
-        <CheckBox x:Name="hardMode" Content="Hard Mode" HorizontalAlignment="Left" Margin="12,420,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.441,0.4" Click="hardMode_Click"/>
+        <Slider x:Name="levelNumberSlider" HorizontalAlignment="Left" Margin="106,517,0,0" VerticalAlignment="Top" Width="120" Minimum="1" Maximum="3" IsSnapToTickEnabled="True" Ticks="1,2,3" ValueChanged="levelNumberSlider_ValueChanged"/>
+        <Label Content="Chapter:" HorizontalAlignment="Left" Margin="20,471,0,0" VerticalAlignment="Top" Width="67"/>
+        <ComboBox x:Name="chapterNameCombobox"  HorizontalAlignment="Left" Margin="92,471,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Level number:" HorizontalAlignment="Left" Margin="20,509,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label Content="1" HorizontalAlignment="Left" Margin="101,535,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528" Width="17"/>
+        <Label Content="2" HorizontalAlignment="Left" Margin="158,535,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528"/>
+        <Label Content="3" HorizontalAlignment="Left" Margin="210,535,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528"/>
+        <CheckBox x:Name="hardMode" Content="Hard Mode" HorizontalAlignment="Left" Margin="22,568,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.441,0.4" Click="hardMode_Click"/>
+        <Label Content="Number of babies:" HorizontalAlignment="Left" Margin="14,253,0,0" VerticalAlignment="Top" Width="110"/>
+        <ComboBox x:Name="numberOfBabiesComboBox"  HorizontalAlignment="Center" Margin="0,256,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="numberOfBabiesComboBox_SelectionChanged"/>
+        <Label Content="First baby:" x:Name="secondBabyLabel" HorizontalAlignment="Left" Margin="14,286,0,0" VerticalAlignment="Top" Width="110" />
+        <ComboBox x:Name="firstBabyComboBox"  HorizontalAlignment="Center" Margin="0,288,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="firstBabyComboBox_SelectionChanged" SelectedValue="{Binding Selected1}" />
+        <Label Content="Second baby:" x:Name="firstBabyLabel" HorizontalAlignment="Left" Margin="14,315,0,0" VerticalAlignment="Top" Width="110"/>
+        <ComboBox x:Name="secondBabyComboBox"  HorizontalAlignment="Center" Margin="0,317,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="secondComboBox_SelectionChanged" SelectedValue="{Binding Selected2}"/>
+        <Label Content="Third baby:" x:Name="firstBabyLabel_Copy" HorizontalAlignment="Left" Margin="14,344,0,0" VerticalAlignment="Top" Width="110"/>
+        <ComboBox x:Name="thirdBabyComboBox"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" SelectionChanged="thirdComboBox_SelectionChanged" Margin="0,345,0,0" SelectedValue="{Binding Selected3}"/>
+        <Label Content="Fourth baby:" x:Name="fourthBabyLabel" HorizontalAlignment="Left" Margin="14,373,0,0" VerticalAlignment="Top" Width="110"/>
+        <ComboBox x:Name="fourthBabyComboBox"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" SelectionChanged="fourthComboBox_SelectionChanged" Margin="0,374,0,0" SelectedValue="{Binding Selected4}"/>
+
     </Grid>
 </Window>
