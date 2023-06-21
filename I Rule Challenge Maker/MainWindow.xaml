@@ -20,8 +20,8 @@
 
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Make your own I.RULE Challenge" VerticalAlignment="Top"/>
-        <TextBox x:Name="levelNameTextbox" HorizontalAlignment="Left" Margin="124,33,0,0" TextWrapping="Wrap" Text="Level1" VerticalAlignment="Top" Width="120" LostFocus="levelNameTextbox_LostFocus"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,3,0,0" TextWrapping="Wrap" Text="Make your own I.RULE Challenge" VerticalAlignment="Top" FontSize="20px" Width="300"/>
+        <TextBox x:Name="levelNameTextbox" HorizontalAlignment="Left" Margin="124,33,0,0" TextWrapping="Wrap" Text="Level1" VerticalAlignment="Top" Width="120" LostFocus="levelNameTextbox_LostFocus" TextChanged="levelNameTextbox_TextChanged"/>
         <Button x:Name="SaveChallengeFileButton" Content="Save challenge to file" HorizontalAlignment="Left" Margin="20,602,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.554,-0.495" Click="SaveChallengeFileButton_Click"/>
         <TextBox MinLines="21" MaxLines="21" IsReadOnly="True" x:Name="challengeContent" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" Background="LightGray" VerticalAlignment="Center" Width="400" Height="684" Grid.Column="1"/>
         <CheckBox x:Name="noCoinsCheckbox" Content="Disable coins" HorizontalAlignment="Left" Margin="12,53,0,0" VerticalAlignment="Top" Click="noCoinsCheckbox_Click" IsChecked="True" />
@@ -36,12 +36,12 @@
         <CheckBox x:Name="noSpotsCheckbox" Content="Disable spots" HorizontalAlignment="Left" Margin="12,233,0,0" VerticalAlignment="Top" Click="noSpotsCheckbox_Click"/>
         <Label Content="Set speed smooth: " HorizontalAlignment="Left" Margin="20,401,0,0" VerticalAlignment="Top" Width="107"/>
         <Label Content="Set speed: " HorizontalAlignment="Left" Margin="20,432,0,0" VerticalAlignment="Top" Width="67"/>
-        <TextBox x:Name="gSpeedSmoothTextbox"  HorizontalAlignment="Left" Margin="127,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="gSpeedSmoothTextbox_LostFocus"/>
-        <TextBox x:Name="gSpeedTextbox" HorizontalAlignment="Left" Margin="92,436,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="gSpeedTextbox_LostFocus"/>
+        <TextBox x:Name="gSpeedSmoothTextbox"  HorizontalAlignment="Left" Margin="127,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="gSpeedSmoothTextbox_LostFocus" PreviewTextInput="gSpeedSmoothTextbox_PreviewTextInput"/>
+        <TextBox x:Name="gSpeedTextbox" HorizontalAlignment="Left" Margin="92,436,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="gSpeedTextbox_LostFocus" PreviewTextInput="gSpeedTextbox_PreviewTextInput"/>
         <Label Content="Challenge name: " HorizontalAlignment="Left" Margin="12,27,0,0" VerticalAlignment="Top" Width="107"/>
-        <Slider x:Name="levelNumberSlider" HorizontalAlignment="Left" Margin="106,517,0,0" VerticalAlignment="Top" Width="120" Minimum="1" Maximum="3" IsSnapToTickEnabled="True" Ticks="1,2,3" ValueChanged="levelNumberSlider_ValueChanged"/>
+        <Slider x:Name="levelNumberSlider" HorizontalAlignment="Left" Margin="106,517,0,0" VerticalAlignment="Top" Width="120" Minimum="1" Maximum="3" IsSnapToTickEnabled="True" Ticks="1,2,3" ValueChanged="levelNumberSlider_ValueChanged" Value="1"/>
         <Label Content="Chapter:" HorizontalAlignment="Left" Margin="20,471,0,0" VerticalAlignment="Top" Width="67"/>
-        <ComboBox x:Name="chapterNameCombobox"  HorizontalAlignment="Left" Margin="92,471,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="chapterNameCombobox"  HorizontalAlignment="Left" Margin="92,471,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="chapterNameCombobox_SelectionChanged" SelectedIndex="0"/>
         <Label Content="Level number:" HorizontalAlignment="Left" Margin="20,509,0,0" VerticalAlignment="Top" Width="87"/>
         <Label Content="1" HorizontalAlignment="Left" Margin="101,535,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528" Width="17"/>
         <Label Content="2" HorizontalAlignment="Left" Margin="158,535,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.595,0.528"/>

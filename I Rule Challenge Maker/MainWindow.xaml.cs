@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Data;
 
@@ -30,6 +31,7 @@ namespace I_Rule_Challenge_Maker
         String levelName = "";
         String stageName = "blue room";
         int stageNumber = 1;
+        String stageRomanNumber = "I";
         String stageDifficulty = "normal";
         StringCollection lines = new StringCollection();
         List<Baby> babiesList = new List<Baby>();
@@ -39,12 +41,11 @@ namespace I_Rule_Challenge_Maker
         public BindingListCollectionView View4 { get; set; }
 
 
-
-
         public MainWindow()
         {
 
             InitializeComponent();
+            challengeContent.Text += "\r\n";
             challengeContent.Text += "global.noCoins = " + noCoins + "\r\n";
             challengeContent.Text += "global.noChampions = " + noChampions + "\r\n";
             challengeContent.Text += "global.fastStart = " + fastStart + "\r\n";
@@ -175,75 +176,91 @@ namespace I_Rule_Challenge_Maker
         private void levelNameTextbox_LostFocus(object sender, RoutedEventArgs e)
         {
             levelName = levelNameTextbox.Text.Equals("Level1") ? "Level1" : levelNameTextbox.Text;
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(15), "Name: " + levelName + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(16), "Name: " + levelName + "\r\n");
         }
+
+        private void levelNameTextbox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            levelName = levelNameTextbox.Text.Equals("Level1") ? "Level1" : levelNameTextbox.Text;
+            /*challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(15), "Name: " + levelName + "\r\n");*/
+        }
+
         private void noCoinsCheckbox_Click(object sender, RoutedEventArgs e)
         {
             noCoins = noCoinsCheckbox.IsChecked == true ? 1 : 0;
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(0), "global.noCoins = " + noCoins + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(1), "global.noCoins = " + noCoins + "\r\n");
         }
 
         private void noChampionsCheckbox_Click(object sender, RoutedEventArgs e)
         {
             noChampions = noChampionsCheckbox.IsChecked == true ? 1 : 0;
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(1), "global.noChampions = " + noChampions + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(2), "global.noChampions = " + noChampions + "\r\n");
         }
 
         private void fastStartCheckbox_Click(object sender, RoutedEventArgs e)
         {
             fastStart = fastStartCheckbox.IsChecked != true ? 0 : 1;
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(2), "global.fastStart = " + fastStart + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(3), "global.fastStart = " + fastStart + "\r\n");
         }
 
         private void noShovelCheckbox_Click(object sender, RoutedEventArgs e)
         {
             noShovel = noShovelCheckbox.IsChecked == true ? 0 : 1;
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(3), "global.noShovel = " + noShovel + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(4), "global.noShovel = " + noShovel + "\r\n");
         }
         private void noChargersCheckbox_Click(object sender, RoutedEventArgs e)
         {
             noChargers = noChargersCheckbox.IsChecked == true ? 1 : 0;
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(4), "global.noChargers = " + noChargers + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(5), "global.noChargers = " + noChargers + "\r\n");
         }
         private void onePerWaveCheckbox_Click(object sender, RoutedEventArgs e)
         {
             onePerWave = onePerWaveCheckbox.IsChecked == true ? 1 : 0;
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(5), "global.onePerWave = " + onePerWave + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(6), "global.onePerWave = " + onePerWave + "\r\n");
         }
 
         private void noHeartsCheckbox_Click(object sender, RoutedEventArgs e)
         {
             noHearts = noHeartsCheckbox.IsChecked == true ? 1 : 0;
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(8), "global.noHearts = " + noHearts + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(9), "global.noHearts = " + noHearts + "\r\n");
         }
 
         private void noPropsCheckbox_Click(object sender, RoutedEventArgs e)
         {
             noProps = noPropsCheckbox.IsChecked == true ? 1 : 0;
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(9), "global.noProps = " + noProps + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(10), "global.noProps = " + noProps + "\r\n");
         }
 
         private void noSpecialPoopCheckbox_Click(object sender, RoutedEventArgs e)
         {
             noSpecialPoop = noSpecialPoopCheckbox.IsChecked == true ? 1 : 0;
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(10), "global.noSpecialPoop = " + noSpecialPoop + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(11), "global.noSpecialPoop = " + noSpecialPoop + "\r\n");
         }
 
         private void noSpotsCheckbox_Click(object sender, RoutedEventArgs e)
         {
             noSpots = noSpotsCheckbox.IsChecked == true ? 1 : 0;
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(11), "global.noSpots = " + noSpots + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(12), "global.noSpots = " + noSpots + "\r\n");
         }
 
         private void levelNumberSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            stageNumber = (int)levelNumberSlider.Value;
+            stageNumber = ((int)levelNumberSlider.Value);
+            stageRomanNumber = returnLevelRomanNumber(stageNumber);
+            showLevelInfo();
+        }
+
+        private void chapterNameCombobox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            stageName = returnChapterID(chapterNameCombobox.SelectedIndex);
+            stageRomanNumber = returnLevelRomanNumber(stageNumber);
+            showLevelInfo();
         }
 
         private void hardMode_Click(object sender, RoutedEventArgs e)
         {
             stageDifficulty = hardMode.IsChecked == true ? "hard" : "normal";
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(17), "Stage: " + chapterNameCombobox.SelectedItem + " " + levelNumberSlider.Value + " " + stageDifficulty + "\r\n");
+            showLevelInfo();
         }
 
         private void gSpeedSmoothTextbox_LostFocus(object sender, RoutedEventArgs e)
@@ -252,7 +269,7 @@ namespace I_Rule_Challenge_Maker
             {
                 gSpeedSmooth = 1.0;
             }
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(12), "global.gSpeedSmooth = " + gSpeedSmooth + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(13), "global.gSpeedSmooth = " + gSpeedSmooth + "\r\n");
         }
 
         private void gSpeedTextbox_LostFocus(object sender, RoutedEventArgs e)
@@ -261,12 +278,14 @@ namespace I_Rule_Challenge_Maker
             {
                 gSpeed = 1.0;
             }
-            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(13), "global.gSpeed = " + gSpeed + "\r\n");
+            challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(14), "global.gSpeed = " + gSpeed + "\r\n");
         }
         private void SaveChallengeFileButton_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+            SaveFileDialog saveFileDialog = new SaveFileDialog()
+            {
+                Filter = "Text file (*.txt)|*.txt"
+        };
             saveFileDialog.FileName = levelName.Equals("") ? "Level1" : levelName;
             if (saveFileDialog.ShowDialog() == true)
                 File.WriteAllText(saveFileDialog.FileName, challengeContent.Text);
@@ -277,7 +296,8 @@ namespace I_Rule_Challenge_Maker
 
         private void numberOfBabiesComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            int numberOfBabies = int.Parse(numberOfBabiesComboBox.SelectedItem.ToString());
+            //int numberOfBabies = int.Parse(s: numberOfBabiesComboBox.SelectedItem.ToString());
+            int numberOfBabies = numberOfBabiesComboBox.SelectedIndex + 1;
             switch (numberOfBabies)
             {
                 case 1:
@@ -309,6 +329,7 @@ namespace I_Rule_Challenge_Maker
                     secondBabyComboBox.IsEnabled = true;
                     thirdBabyComboBox.IsEnabled = true;
                     fourthBabyComboBox.IsEnabled = true;
+
                     break;
             }
         }
@@ -318,15 +339,14 @@ namespace I_Rule_Challenge_Maker
             foreach (Baby baby in babiesList)
             {
 
-                if (baby.Name == firstBabyComboBox.SelectedItem)
+                if (baby.Name.Equals(firstBabyComboBox.SelectedItem))
                 {
                     disposableCards[0] = baby.ID;
                 }
             }
             if (firstBabyComboBox.SelectedItem != null)
             {
-                challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(6), "global.disposableCards =  " + disposableCards[0] + ", " + disposableCards[1] + ", " + disposableCards[2] + ", " + disposableCards[3] + ", " + "\r\n");
-
+                showBabiesID();   
             }
 
         }
@@ -336,15 +356,14 @@ namespace I_Rule_Challenge_Maker
             foreach (Baby baby in babiesList)
             {
 
-                if (baby.Name == secondBabyComboBox.SelectedItem)
+                if (baby.Name.Equals(secondBabyComboBox.SelectedItem))
                 {
                     disposableCards[1] = baby.ID;
                 }
             }
             if (secondBabyComboBox.SelectedItem != null)
             {
-                challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(6), "global.disposableCards =  " + disposableCards[0] + ", " + disposableCards[1] + ", " + disposableCards[2] + ", " + disposableCards[3] + ", " + "\r\n");
-
+                showBabiesID();
             }
         }
         private void thirdComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -352,15 +371,14 @@ namespace I_Rule_Challenge_Maker
             foreach (Baby baby in babiesList)
             {
 
-                if (baby.Name == thirdBabyComboBox.SelectedItem)
+                if (baby.Name.Equals(thirdBabyComboBox.SelectedItem))
                 {
                     disposableCards[2] = baby.ID;
                 }
             }
             if (thirdBabyComboBox.SelectedItem != null)
             {
-                challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(6), "global.disposableCards =  " + disposableCards[0] + ", " + disposableCards[1] + ", " + disposableCards[2] + ", " + disposableCards[3] + ", " + "\r\n");
-
+                showBabiesID();
             }
         }
         private void fourthComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -368,14 +386,14 @@ namespace I_Rule_Challenge_Maker
             foreach (Baby baby in babiesList)
             {
 
-                if (baby.Name == fourthBabyComboBox.SelectedItem)
+                if (baby.Name.Equals(fourthBabyComboBox.SelectedItem))
                 {
                     disposableCards[3] = baby.ID;
                 }
             }
             if (fourthBabyComboBox.SelectedItem != null)
             {
-                challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(6), "global.disposableCards =  " + disposableCards[0] + ", " + disposableCards[1] + ", " + disposableCards[2] + ", " + disposableCards[3] + ", " + "\r\n");
+                showBabiesID();
             }
         }
         private List<Baby> LoadCollectionData()
@@ -602,5 +620,84 @@ namespace I_Rule_Challenge_Maker
             fourthBabyComboBox.SelectedIndex = -1;
         }
 
+        public String returnLevelRomanNumber(int levelNumber)
+        {
+            if(!levelNumber.Equals(null))
+            {
+                switch (levelNumber)
+                {
+                    case 1: return "I";
+                    case 2: return "II";
+                    case 3: return "III";
+                }
+            }
+            return "";
+        }
+
+        public String returnChapterID(int chapterNumber)
+        {
+            if (!chapterNumber.Equals(null))
+            {
+                switch (chapterNumber)
+                {
+                    case 0: return "blue room";
+                    case 1: return "mine";
+                    case 2: return "ark";
+                }
+            }
+            return "";
+        }
+
+        public void showLevelInfo()
+        {
+            if (challengeContent != null && stageName != null && stageRomanNumber != null && stageDifficulty != null)
+            {
+                string line17 = challengeContent.GetLineText(18);
+                if (line17 != null)
+                {
+                    string replacement = "Stage: " + stageName + " " + stageRomanNumber + " " + stageDifficulty + "\r\n";
+                    challengeContent.Text = challengeContent.Text.Replace(line17, replacement);
+                }
+                else
+                {
+                    // Handle the case when line17 is null
+                }
+            }
+            else
+            {
+                // Handle the case when any of the variables is null
+            }
+        }
+
+        private void gSpeedTextbox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void gSpeedSmoothTextbox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void showBabiesID()
+        {
+            switch (numberOfBabiesComboBox.SelectedIndex)
+            {
+                case 0:
+                    challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(7), "global.disposableCards =  " + disposableCards[0] + "\r\n");
+                    break;
+                case 1:
+                    challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(7), "global.disposableCards =  " + disposableCards[0] + ", " + disposableCards[1] + "\r\n");
+                    break;
+                case 2:
+                    challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(7), "global.disposableCards =  " + disposableCards[0] + ", " + disposableCards[1] + ", " + disposableCards[2] + "\r\n");
+                    break;
+                case 3:
+                    challengeContent.Text = challengeContent.Text.Replace(challengeContent.GetLineText(7), "global.disposableCards =  " + disposableCards[0] + ", " + disposableCards[1] + ", " + disposableCards[2] + ", " + disposableCards[3] + "\r\n");
+                    break;
+            }
+        }
     }
 }
